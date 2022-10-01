@@ -76,6 +76,7 @@ void write_stat(std::chrono::duration<double, std::milli> stat, std::vector<std:
 		}
 		data_res << std::endl;
 	}
+
 	data_res.close();
 
 	std::ofstream stat_f("C:\\Users\\matro\\source\\repos\\Паралельная прога лаба1\\Парал Прог л1\\stat.txt", std::ios::app);
