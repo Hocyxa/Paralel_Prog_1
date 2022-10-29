@@ -3,7 +3,8 @@
 #include <fstream>
 #include <random> 
 #include <chrono>
-#define size 100
+#include <omp.h>
+#define size 1000
 
 #define Matrix_1_size_ver size
 #define Matrix_1_size_hor size
@@ -90,6 +91,7 @@ void write_stat(std::chrono::duration<double, std::milli> stat, std::vector<std:
 void mul_mat(std::vector<std::vector<int>>& matrix_1, std::vector<std::vector<int>>& matrix_2, std::vector<std::vector<int>>& matrix_res)
 {
 	auto start = std::chrono::steady_clock::now();
+# pragma omp parallel for num_threads(4)
 	for (int i = 0; i < Matrix_1_size_hor; i++)
 	{
 		for (int j = 0; j < Matrix_2_size_ver; j++)
